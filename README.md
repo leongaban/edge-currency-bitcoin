@@ -5,6 +5,8 @@
 
 Implements Bitcoin send/receive functionality per the spec for currency plugins for [edge-login](https://github.com/Airbitz/edge-login)
 
+This repo also contains plugin code for other coins such as Bitcoin Cash, Litecoin, Dash, Decred and Dogecoin
+
 ## Installing
 
 Since this package is not on NPM, you will have to use the current git version
