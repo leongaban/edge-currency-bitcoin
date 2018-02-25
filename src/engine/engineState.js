@@ -7,10 +7,12 @@ import type {
   StratumCallbacks,
   StratumTask
 } from '../stratum/stratumConnection.js'
+
 import {
   StratumConnection,
   KEEPALIVE_MS
 } from '../stratum/stratumConnection.js'
+
 import {
   broadcastTx,
   fetchScriptHashHistory,
@@ -21,11 +23,13 @@ import {
   subscribeScriptHash,
   fetchBlockHeader
 } from '../stratum/stratumMessages.js'
+
 import type {
   StratumBlockHeader,
   StratumHistoryRow,
   StratumUtxo
 } from '../stratum/stratumMessages.js'
+
 import { parseTransaction } from './parseTransaction.js'
 
 export type UtxoInfo = {
@@ -191,8 +195,8 @@ export class EngineState {
     }
     this.scriptHashes[displayAddress] = scriptHash
     this.refreshAddressInfo(scriptHash)
-
     this.dirtyAddressCache()
+
     for (const uri of Object.keys(this.serverStates)) {
       this.serverStates[uri].addresses[scriptHash] = {
         fetchingTxids: false,
