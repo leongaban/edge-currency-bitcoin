@@ -206,7 +206,13 @@ export class StratumConnection {
       latency = this.totalLatency / this.totalMessages
     }
     try {
-      this.onClose(this.uri, this.badMessages, this.goodMessages, latency, hadError)
+      this.onClose(
+        this.uri,
+        this.badMessages,
+        this.goodMessages,
+        latency,
+        hadError
+      )
     } catch (e) {
       this.log(e)
     }

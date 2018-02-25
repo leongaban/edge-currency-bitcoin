@@ -8,7 +8,7 @@ const babelOptions = {
   presets: ['flow']
 }
 
-export default {
+const config = {
   external: [
     ...Object.keys(packageJson.dependencies),
     ...Object.keys(packageJson.devDependencies),
@@ -26,3 +26,5 @@ export default {
   plugins: [json(), alias({ 'buffer-hack': 'buffer/' }), babel(babelOptions)],
   sourcemap: true
 }
+
+export default config

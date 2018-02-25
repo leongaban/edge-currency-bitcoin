@@ -10,11 +10,13 @@ import type {
   AbcParsedUri,
   AbcWalletInfo
 } from 'edge-login'
+
 import {
   validAddress,
   sanitizeAddress,
   dirtyAddress
 } from '../utils/addressFormat/addressFormatIndex.js'
+
 import bcoin from 'bcoin'
 import { bns } from 'biggystring'
 // $FlowFixMe
@@ -133,7 +135,7 @@ export class CurrencyPlugin {
     if (!publicAddress) throw new Error('InvalidUriError')
     publicAddress = publicAddress.replace('/', '') // Remove any slashes
     publicAddress = dirtyAddress(publicAddress, this.network)
-    if (!validAddress(publicAddress, this.network)) throw new Error('InvalidPublicAddressError')
+    if (!validAddress(publicAddress, this.network)) { throw new Error('InvalidPublicAddressError') }
 
     const amountStr = getParameterByName('amount', uri)
     const metadata = {}
@@ -159,7 +161,7 @@ export class CurrencyPlugin {
     if (!obj.publicAddress || !validAddress(obj.publicAddress, this.network)) {
       throw new Error('InvalidPublicAddressError')
     }
-    if (!obj.nativeAmount && !obj.metadata) return dirtyAddress(obj.publicAddress, this.network)
+    if (!obj.nativeAmount && !obj.metadata) { return dirtyAddress(obj.publicAddress, this.network) }
     obj.publicAddress = sanitizeAddress(obj.publicAddress, this.network)
     let queryString = ''
     const info = this.currencyInfo

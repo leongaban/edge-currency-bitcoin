@@ -89,7 +89,9 @@ export class PluginState {
     }
 
     try {
-      const serverCacheText = await this.folder.file('serverCache.json').getText()
+      const serverCacheText = await this.folder
+        .file('serverCache.json')
+        .getText()
       const serverCacheJson = JSON.parse(serverCacheText)
       // TODO: Validate JSON
 

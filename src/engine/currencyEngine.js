@@ -465,14 +465,17 @@ export class CurrencyEngine {
   }
 
   addGapLimitAddresses (addresses: Array<string>, options: any): void {
-    const use = (scriptHash) => {
+    const use = scriptHash => {
       this.engineState.markAddressesUsed([scriptHash])
       if (this.keyManager) this.keyManager.setLookAhead()
     }
     addresses.forEach(address => {
       const scriptHash = this.engineState.scriptHashes[address]
       if (typeof scriptHash === 'string') use(scriptHash)
-      this.keyManager.addressToScriptHash(address).then(use).catch(this.log)
+      this.keyManager
+        .addressToScriptHash(address)
+        .then(use)
+        .catch(this.log)
     })
   }
 

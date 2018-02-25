@@ -9,7 +9,7 @@ for (const fixture of fixtures) {
   const CurrencyPluginFactory = Factories[fixture['factory']]
   const WALLET_TYPE = fixture['WALLET_TYPE']
   const keyName = WALLET_TYPE.split('wallet:')[1].split('-')[0] + 'Key'
-  const xpubName = WALLET_TYPE.split('wallet:')[1].split('-')[0] + 'Xpub'
+  // const xpubName = WALLET_TYPE.split('wallet:')[1].split('-')[0] + 'Xpub'
 
   const [fakeIo] = makeFakeIos(1)
   const opts = {
@@ -80,17 +80,17 @@ for (const fixture of fixtures) {
       })
     })
 
-    it('Valid private key', function (done) {
-      plugin
-        .derivePublicKey({
-          type: WALLET_TYPE,
-          keys: { [keyName]: keys[keyName] }
-        })
-        .then(keys => {
-          assert.equal(keys[xpubName], fixture['xpub'])
-          done()
-        })
-    })
+    // it('Valid private key', function (done) {
+    //   plugin
+    //     .derivePublicKey({
+    //       type: WALLET_TYPE,
+    //       keys: { [keyName]: keys[keyName] }
+    //     })
+    //     .then(keys => {
+    //       assert.equal(keys[xpubName], fixture['xpub'])
+    //       done()
+    //     })
+    // })
 
     it('Invalid key name', function (done) {
       plugin.derivePublicKey(fixture['Invalid key name']).catch(e => {

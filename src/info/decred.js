@@ -7,7 +7,7 @@ export const decredInfo: AbcCurrencyInfo = {
   currencyName: 'Decred',
   pluginName: 'decred',
   denominations: [{ name: 'DCR', multiplier: '100000000', symbol: 'D' }],
-  walletTypes: ['wallet:decred-bip44', 'wallet:decred'],
+  walletTypes: ['wallet:decred-blake256', 'wallet:decred'],
 
   // Configuration options:
   defaultSettings: {
@@ -15,38 +15,38 @@ export const decredInfo: AbcCurrencyInfo = {
       type: 'decred',
       magic: 0x00000000,
       keyPrefix: {
-        privkey: 0xb0,
-        xpubkey: 0x00000000,
-        xprivkey: 0x00000000,
-        xprivkey58: 'xprv',
-        xpubkey58: 'xpub',
-        coinType: 3
+        privkey: 'Pm',
+        xpubkey: 'Dx',
+        xprivkey: 'dprv',
+        xprivkey58: 'dprv',
+        xpubkey58: 'dpub',
+        coinType: 0
       },
       addressPrefix: {
-        pubkeyhash: 0x30,
-        scripthash: 0x32,
-        witnesspubkeyhash: 0x06,
-        witnessscripthash: 0x0a,
-        bech32: 'lc'
+        pubkeyhash: 'Ds',
+        scripthash: 'Dc',
+        witnesspubkeyhash: 'Ds',
+        witnessscripthash: 'Dc',
+        bech32: null
       }
     },
     customFeeSettings: ['satPerByte'],
     gapLimit: 25,
     maxFee: 1000000,
     feeUpdateInterval: 10000,
-    feeInfoServer: '',
-    infoServer: '',
+    // @TODO need to replace these
+    feeInfoServer: 'https://decredfees.21.co/api/v1/fees/list',
+    infoServer: 'https://info1.edgesecure.co:8444/v1/electrumServers/DCR',
     simpleFeeSettings: {
-      highFee: '1000',
-      lowFee: '100',
-      standardFeeLow: '500',
-      standardFeeHigh: '750',
+      highFee: '1000000',
+      lowFee: '10000',
+      standardFeeLow: '10000',
+      standardFeeHigh: '1000000',
       standardFeeLowAmount: '',
       standardFeeHighAmount: ''
     },
     electrumServers: []
   },
-  metaTokens: [],
 
   // Explorers:
   addressExplorer: 'https://mainnet.decred.org/address/%s',

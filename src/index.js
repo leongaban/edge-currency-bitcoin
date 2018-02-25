@@ -15,6 +15,7 @@ import { bitcoinTestnetInfo } from './info/bitcointestnet.js'
 import { dashInfo } from './info/dash.js'
 import { dogecoinInfo } from './info/dogecoin.js'
 import { litecoinInfo } from './info/litecoin.js'
+import { decredInfo } from './info/decred.js'
 
 // CurrencyPlugin takes a plugin info and creates the plugin
 import { CurrencyPlugin } from './plugin/currencyPlugin.js'
@@ -77,6 +78,9 @@ export const dogecoinCurrencyPluginFactory = makePluginFactory(dogecoinInfo)
 // Litecoin:
 export const litecoinCurrencyPluginFactory = makePluginFactory(litecoinInfo)
 
+// Decred:
+export const decredCurrencyPluginFactory = makePluginFactory(decredInfo)
+
 // Legacy uppercased names:
 export {
   bitcoinCurrencyPluginFactory as BitcoinCurrencyPluginFactory,
@@ -85,5 +89,6 @@ export {
   bitcoincashTestnetCurrencyPluginFactory as BitcoincashTestnetCurrencyPluginFactory,
   dashCurrencyPluginFactory as DashCurrencyPluginFactory,
   dogecoinCurrencyPluginFactory as DogecoinCurrencyPluginFactory,
-  litecoinCurrencyPluginFactory as LitecoinCurrencyPluginFactory
+  litecoinCurrencyPluginFactory as LitecoinCurrencyPluginFactory,
+  decredCurrencyPluginFactory as DecredCurrencyPluginFactory
 }

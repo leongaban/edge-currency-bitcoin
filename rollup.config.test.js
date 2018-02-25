@@ -5,6 +5,8 @@ import multiEntry from 'rollup-plugin-multi-entry'
 
 import config from './rollup.config.js'
 
+console.log('config', config);
+
 const babelOptions = {
   presets: ['flow']
 }

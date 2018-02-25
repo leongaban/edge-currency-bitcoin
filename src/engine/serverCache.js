@@ -118,7 +118,11 @@ export class ServerCache {
     console.log('**************************')
   }
 
-  serverScoreUp (serverUrl: string, responseTimeMilliseconds: number, changeScore: number = 1) {
+  serverScoreUp (
+    serverUrl: string,
+    responseTimeMilliseconds: number,
+    changeScore: number = 1
+  ) {
     const serverInfo: ServerInfo = this.servers_[serverUrl]
 
     serverInfo.serverScore += changeScore
@@ -127,7 +131,11 @@ export class ServerCache {
       this.dirty_ = true
     }
 
-    console.log(`ServerCache UP: ${serverUrl} ${serverInfo.serverScore} ${responseTimeMilliseconds}`)
+    console.log(
+      `ServerCache UP: ${serverUrl} ${
+        serverInfo.serverScore
+      } ${responseTimeMilliseconds}`
+    )
     this.lastScoreUpTime_ = Date.now()
 
     if (responseTimeMilliseconds !== 0) {
@@ -148,7 +156,9 @@ export class ServerCache {
       serverInfo.serverScore = MIN_SCORE
       this.dirty_ = true
     }
-    console.log(`ServerCache DOWN: ${serverUrl} ${serverInfo.serverScore.toString()}`)
+    console.log(
+      `ServerCache DOWN: ${serverUrl} ${serverInfo.serverScore.toString()}`
+    )
   }
 
   setResponseTime (serverUrl: string, responseTimeMilliseconds: number) {

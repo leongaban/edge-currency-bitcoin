@@ -46,7 +46,12 @@ for (const fixture of fixtures) {
     it('get legacy format', function () {
       for (const address of fixture['toLegacy']) {
         console.log(address)
-        assert(toLegacyFormat(address[0], fixture['WALLET_TYPE'].split('wallet:')[1]) === address[1])
+        assert(
+          toLegacyFormat(
+            address[0],
+            fixture['WALLET_TYPE'].split('wallet:')[1]
+          ) === address[1]
+        )
       }
     })
   })
